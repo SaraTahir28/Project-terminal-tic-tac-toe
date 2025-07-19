@@ -15,10 +15,51 @@
             ['O', 'O', 'X']
         ];
 */
-function validateMove(move, board) {
-    // Implement this at the end if you have time, otherwise you can help your teammates!
-    return true;
+function invalidMove() {
+  // invalid move:
+  console.log("Try again...");
+  return;
 }
+
+function validMove() {
+  console.log("Good move");
+  return;
+}
+
+function validateMove(move, board) {
+  // separate move into row and column
+  let movearr = move.split(",");
+  const row = movearr[0];
+  const col = movearr[1];
+  // console.log(row, col);
+
+  // check for invalid input
+  // check row and col are int between 1 - 3 and target on board is empty
+  if (
+    row < 1 ||
+    row > 3 ||
+    row % 1 > 0 ||
+    col < 1 ||
+    col > 3 ||
+    col % 1 > 0 ||
+    board[row - 1][col - 1] !== "_"
+  ) {
+    invalidMove();
+    return false;
+  }
+
+  // Implement this at the end if you have time, otherwise you can help your teammates!
+  // validMove();
+  return true;
+}
+
+// const move1 = "1,2";
+// const board1 = [
+//   ["X", "O", "_"],
+//   ["_", "_", "_"],
+//   ["_", "_", "_"],
+// ];
+// validateMove(move1, board1);
 
 /*
     Given 3 parameters:
@@ -31,6 +72,41 @@ function validateMove(move, board) {
             - Update the board with the player's value ('X' or 'O') in the correct position
             - Return true
 */
-export function makeMove(board, move, player) {
+function makeMove(board, move, player) {
+  // validate the move
+  if (validateMove(move, board) == false) {
     return false;
+  }
+
+  // separate move into row and column
+  let movearr = move.split(",");
+  const row = movearr[0];
+  const col = movearr[1];
+
+  // check valid player input
+  if (player === "X" || player === "O") {
+    board[row - 1][col - 1] = player;
+  }
+  //   else {
+  //     console.log("invalid player");
+  //     return false;
+  //   }
+
+  // catch all
+  //console.log("error catch all triggered");
+  return false;
 }
+// let move1 = "2,3";
+// let board1 = [
+//   ["X", "O", "_"],
+//   ["_", "_", "_"],
+//   ["_", "_", "_"],
+// ];
+// const player1 = "P";
+// makeMove(board1, move1, player1);
+// console.log(board1);
+
+module.exports = {
+  makeMove,
+  validateMove,
+};
