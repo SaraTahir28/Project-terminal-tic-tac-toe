@@ -19,9 +19,9 @@ import { checkIfNoMovesLeft } from "./board-printer.js";
 */
 function checkRow(board, player, rowNumber) {
   if (
-    board[rowNumber - 1][0] === player &&
-    board[rowNumber - 1][1] === player &&
-    board[rowNumber - 1][2] === player
+    board[rowNumber][0] === player &&
+    board[rowNumber][1] === player &&
+    board[rowNumber][2] === player
   ) {
     return true;
   }
@@ -53,9 +53,9 @@ function checkRow(board, player, rowNumber) {
 */
 function checkColumn(board, player, columnNumber) {
   if (
-    board[0][columnNumber - 1] === player &&
-    board[1][columnNumber - 1] === player &&
-    board[2][columnNumber - 1] === player
+    board[0][columnNumber] === player &&
+    board[1][columnNumber] === player &&
+    board[2][columnNumber] === player
   ) {
     return true;
   }
