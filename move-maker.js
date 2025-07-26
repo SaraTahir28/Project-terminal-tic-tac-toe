@@ -106,7 +106,8 @@ function makeMove(board, move, player) {
 // makeMove(board1, move1, player1);
 // console.log(board1);
 
-module.exports = {
+/*module.exports = {
   makeMove,
   validateMove,
-};
+};*/
+export { makeMove, validateMove };
