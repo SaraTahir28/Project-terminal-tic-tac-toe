@@ -20,6 +20,7 @@ async function playGame() {
         let move;
         
         do {
+            console.log("move loop");
             move = await getMove(player);
         } while(!makeMove(board, move, player));
 

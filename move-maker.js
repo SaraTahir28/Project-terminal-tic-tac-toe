@@ -86,6 +86,7 @@ function makeMove(board, move, player) {
   // check valid player input
   if (player === "X" || player === "O") {
     board[row - 1][col - 1] = player;
+    return true;
   }
   //   else {
   //     console.log("invalid player");
